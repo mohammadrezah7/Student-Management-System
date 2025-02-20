@@ -12,11 +12,9 @@ void showname() {
     bool foundStudent = false;
     while (getline(inFile, line3)) {
         if (line3.find("Student Name:") != string::npos) {
-            // نمایش نام دانشجو
             cout << line3 << endl;
             foundStudent = true;
         } else if (line3.find("Student Number:") != string::npos && foundStudent) {
-            // نمایش شماره دانشجویی
             cout << line3 << endl;
             cout << "-------------------------" << endl;
             foundStudent = false;
@@ -27,11 +25,10 @@ void showname() {
 void rotbebandi() {
     ifstream inFile("students.txt");
     string line;
-    double moadel[1000]; // آرایه برای ذخیره معدل‌ها
-    int count = 0; // تعداد معدل‌های خوانده‌شده
+    double moadel[1000]; 
+    int count = 0; 
     int count2 = 0;
     string wordss[1000];
-    // خواندن معدل‌ها از فایل
     while (getline(inFile, line)) {
         if (line.find("Average:") != string::npos) {
             size_t pos = line.find(":");
@@ -54,11 +51,10 @@ void rotbebandi() {
     for (int i = 0; i < count - 1; i++) {
         for (int j = i + 1; j < count; j++) {
             if (moadel[i] < moadel[j]) {
-                swap(moadel[i], moadel[j]); // جابجایی مقادیر برای مرتب سازی معدل ها
+                swap(moadel[i], moadel[j]);
             }
         }
     }
-    // نمایش معدل‌ها به ترتیب نزولی
     int counters[1000]={0};
     cout << "Ranking based on average (highest to lowest):" << endl;
     for (int i = 0; i < count; i++) {
@@ -98,7 +94,7 @@ int main() {
     cout<<"if you want to continue press any key except -1 : ";
     while(cin>>edame && edame!=-1){
     cout<<endl;
-    int f; // اینکه کدام گزینه رو انتخاب میکنه
+    int f;
     cout << "You have 4 options to choose:" << endl;
     cout << "1 . view the ranks of students" << endl
          << "2 . add a student to list" << endl
@@ -108,17 +104,17 @@ int main() {
     cin >> f;
     cout<<endl;
 
-    string words[1000]; // حداکثر تعداد دانش آموزانی که در دیتابیس ذخیره میشوند
-    int students = 0; // تعداد دانش آموزانی که تا الان به سیستم اضافه شده اند
+    string words[1000];
+    int students = 0;
     double moadel[1000];
     if (f == 1) {
         rotbebandi();
         cout<<"if you want to continue press any key except -1 : ";
     }
     if (f == 2) {
-        string name; // نام به همراه نام خانوادگی دانش آموز
-        long long int student_number; // شماره دانش آموزش شخص مورد نظر
-        int dars = 0; // تعداد دروسی که میخواهید نمره آن را وارد کنید
+        string name; 
+        long long int student_number; 
+        int dars = 0;
         cin.ignore();
         cout << "enter the name of your student : ";
         getline(cin, name);
@@ -146,8 +142,8 @@ int main() {
         moadel[students] = sum / zaribha;
         students++;
 
-        // ذخیره اطلاعات در فایل
-        ofstream outFile("students.txt", ios::app); // باز کردن فایل برای افزودن اطلاعات
+        
+        ofstream outFile("students.txt", ios::app);
         if (outFile.is_open()) {
             outFile << "Student Name: " << name << endl;
             outFile << "Student Number: " << student_number << endl;
