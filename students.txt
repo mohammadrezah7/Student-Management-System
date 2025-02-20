@@ -1,0 +1,14 @@
+Student Name: Mohammadreza Hassani
+Student Number: 403521222
+Lessons and Marks:
+Math - Mark: 18.8 - Zarib: 3
+Farsi - Mark: 20 - Zarib: 3
+Average: 19.4
+-------------------------
+Student Name: Erfan
+Student Number: 403522091
+Lessons and Marks:
+Basic - Mark: 20 - Zarib: 3
+Farsi - Mark: 18 - Zarib: 3
+Average: 19
+-------------------------
